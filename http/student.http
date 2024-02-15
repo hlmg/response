@@ -7,6 +7,15 @@ Content-Type: application/json
   "grade": 1
 }
 
+### save error
+POST localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "lee",
+  "grade": 6
+}
+
 ### findAll
 GET localhost:8080/students
 Content-Type: application/json

@@ -2,14 +2,17 @@ package sample.response.model;
 
 import java.util.Objects;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
 public class Student implements Comparable<Student> {
 	private final String name;
 	private final int grade;
+
+	public Student(String name, int grade) {
+		this.name = name;
+		this.grade = grade;
+	}
 
 	@Override
 	public int compareTo(Student o) {
