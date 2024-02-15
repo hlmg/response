@@ -10,17 +10,17 @@ import sample.response.model.Student;
 
 @Repository
 public class StudentRepository {
-	private final Set<Student> students = new HashSet<>();
+    private final Set<Student> students = new HashSet<>();
 
-	public void save(Student student) {
-		students.add(student);
-	}
+    public void save(Student student) {
+        students.add(student);
+    }
 
-	public List<Student> findAll() {
-		return students.stream()
-				.sorted()
-				.toList();
-	}
+    public List<Student> findAll() {
+        return students.stream()
+                .sorted()
+                .toList();
+    }
 
     public List<Student> findByGrade(int grade) {
         return students.stream()

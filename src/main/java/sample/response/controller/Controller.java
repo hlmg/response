@@ -18,26 +18,26 @@ import sample.response.service.StudentService;
 @RequiredArgsConstructor
 @RestController
 public class Controller {
-	private final StudentService studentService;
+    private final StudentService studentService;
 
-	@PostMapping("/students")
-	public ApiResponse<Student> save(@RequestBody SaveRequestDto requestDto) {
-		return new ApiResponse<>(studentService.save(requestDto));
-	}
+    @PostMapping("/students")
+    public ApiResponse<Student> save(@RequestBody SaveRequestDto requestDto) {
+        return new ApiResponse<>(studentService.save(requestDto));
+    }
 
-	@GetMapping("/students")
-	public ApiResponse<Student> findAll() {
-		return new ApiResponse<>(studentService.findAll());
-	}
+    @GetMapping("/students")
+    public ApiResponse<Student> findAll() {
+        return new ApiResponse<>(studentService.findAll());
+    }
 
-	@GetMapping("/students/{grade}")
-	public ApiResponse<Student> findAll(@PathVariable String grade) {
-		return new ApiResponse<>(studentService.findByGrade(Integer.parseInt(grade)));
-	}
+    @GetMapping("/students/{grade}")
+    public ApiResponse<Student> findAll(@PathVariable String grade) {
+        return new ApiResponse<>(studentService.findByGrade(Integer.parseInt(grade)));
+    }
 
-	@ExceptionHandler(CustomException.class)
-	public ApiResponse<?> customExceptionHandler(CustomException e, HttpServletResponse response) {
-		response.setStatus(e.getErrorCode().getHttpStatus().value());
-		return new ApiResponse<>(e.getErrorCode().getCode(), e.getMessage(), e.getData());
-	}
+    @ExceptionHandler(CustomException.class)
+    public ApiResponse<?> customExceptionHandler(CustomException e, HttpServletResponse response) {
+        response.setStatus(e.getErrorCode().getHttpStatus().value());
+        return new ApiResponse<>(e.getErrorCode().getCode(), e.getMessage(), e.getData());
+    }
 }

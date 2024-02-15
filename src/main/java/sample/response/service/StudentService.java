@@ -15,22 +15,22 @@ import sample.response.repository.StudentRepository;
 @RequiredArgsConstructor
 @Service
 public class StudentService {
-	private final StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
-	public Student save(SaveRequestDto requestDto) {
-		if (requestDto.grade() >= 6) {
-			throw new CustomException(ErrorCode.BAD_REQUEST, "grade 는 6 이상을 입력 할 수 없습니다.", new InputRestriction(6));
-		}
-		Student student = new Student(requestDto.name(), requestDto.grade());
-		studentRepository.save(student);
-		return student;
-	}
+    public Student save(SaveRequestDto requestDto) {
+        if (requestDto.grade() >= 6) {
+            throw new CustomException(ErrorCode.BAD_REQUEST, "grade 는 6 이상을 입력 할 수 없습니다.", new InputRestriction(6));
+        }
+        Student student = new Student(requestDto.name(), requestDto.grade());
+        studentRepository.save(student);
+        return student;
+    }
 
-	public List<Student> findAll() {
-		return studentRepository.findAll();
-	}
+    public List<Student> findAll() {
+        return studentRepository.findAll();
+    }
 
-	public List<Student> findByGrade(int grade) {
-		return studentRepository.findByGrade(grade);
-	}
+    public List<Student> findByGrade(int grade) {
+        return studentRepository.findByGrade(grade);
+    }
 }
