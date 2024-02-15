@@ -1,0 +1,16 @@
+### save
+POST localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "lee",
+  "grade": 1
+}
+
+### findAll
+GET localhost:8080/students
+Content-Type: application/json
+
+### findAllByGrade
+GET localhost:8080/students/1
+Content-Type: application/json
